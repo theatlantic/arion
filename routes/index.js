@@ -31,7 +31,8 @@ router.post('/pull-requests', (req, res) => {
   const userMap = {
     'whatisjasongoldstein': '@jason',
     'defbyte': '@cdavis',
-    'jeremy-green': '@jgreen'
+    'jeremy-green': '@jgreen',
+    'pkafei': '@pburton'
   };
   const username = userMap[login];
 
