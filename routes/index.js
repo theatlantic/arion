@@ -35,17 +35,23 @@ router.post('/pull-requests', (req, res) => {
   };
   const username = userMap[login];
 
-  console.log(username);
-
   if (!username) {
     return sendStatus(res, 204);
   }
 
+
+  const pullRequest = body.pull_request;
+  const prUrl = pullRequest.url;
+  const prTitle = pullRequest.title;
+  const prSubmitter = pullRequest.user;
+  const prLogin = prSubmitter.login;
+
+
   //'{"channel": "' + body.text + '", "text": "' + message + '", "icon_emoji": ":shush:", "username": "Shush.Bot"}'
   const payload = {
     channel: username,
-    text: 'I love jeremy',
-    icon_emoji: ':react:',
+    text: `${prLogin} has tagged you in a Pull Request. Please review <${prUrl}|${prTitle}>`,
+    icon_emoji: ':octocat:',
     username: 'Pull Request Bot'
   };
 
@@ -57,8 +63,6 @@ router.post('/pull-requests', (req, res) => {
       payload: JSON.stringify(payload)
     }
   }, (e, r, b) => {
-    console.log(e);
-    console.log(b);
     return sendStatus(res, 200);
   });
 });
