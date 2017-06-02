@@ -34,6 +34,9 @@ router.post('/pull-requests', (req, res) => {
     'jeremy-green': 'jgreen'
   };
   const username = userMap[login];
+
+  console.log(username);
+
   if (!username) {
     return sendStatus(res, 204);
   }
@@ -46,14 +49,16 @@ router.post('/pull-requests', (req, res) => {
     username: 'Pull Request Bot'
   };
 
+  console.log(payload);
+
   request.post({
     url: webhookUrl,
     form: {
       payload: JSON.stringify(payload)
     }
+  }, (e, r, b) => {
+    return sendStatus(res, 200);
   });
-
-  return sendStatus(res, 200);
 });
 
 
