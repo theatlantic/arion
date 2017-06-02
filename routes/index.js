@@ -39,15 +39,12 @@ router.post('/pull-requests', (req, res) => {
     return sendStatus(res, 204);
   }
 
-
   const pullRequest = body.pull_request;
   const prUrl = pullRequest.html_url;
   const prTitle = pullRequest.title;
   const prSubmitter = pullRequest.user;
   const prLogin = prSubmitter.login;
 
-
-  //'{"channel": "' + body.text + '", "text": "' + message + '", "icon_emoji": ":shush:", "username": "Shush.Bot"}'
   const payload = {
     channel: username,
     text: `*${prLogin}* has tagged you in a Pull Request. Please review <${prUrl}|${prTitle}>`,
@@ -55,16 +52,14 @@ router.post('/pull-requests', (req, res) => {
     username: 'Pull Request Bot'
   };
 
-  console.log(payload);
-
   request.post({
     url: webhookUrl,
     form: {
       payload: JSON.stringify(payload)
     }
-  }, (e, r, b) => {
-    return sendStatus(res, 200);
   });
+
+  return sendStatus(res, 200);
 });
 
 
