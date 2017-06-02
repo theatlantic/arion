@@ -29,9 +29,9 @@ router.post('/pull-requests', (req, res) => {
 
   const login = reviewer.login;
   const userMap = {
-    'whatisjasongoldstein': 'jason',
-    'defbyte': 'cdavis',
-    'jeremy-green': 'jgreen'
+    'whatisjasongoldstein': '@jason',
+    'defbyte': '@cdavis',
+    'jeremy-green': '@jgreen'
   };
   const username = userMap[login];
 
@@ -57,6 +57,8 @@ router.post('/pull-requests', (req, res) => {
       payload: JSON.stringify(payload)
     }
   }, (e, r, b) => {
+    console.log(e);
+    console.log(b);
     return sendStatus(res, 200);
   });
 });
