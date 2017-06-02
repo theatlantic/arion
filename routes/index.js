@@ -62,7 +62,8 @@ router.post('/pull-requests', (req, res) => {
           "author_name": `${prLogin}`,
           "title": prTitle,
           "title_link": prUrl,
-          "text": prBody
+          "text": prBody,
+          "mrkdwn_in": ["text"]
       }
     ]
   };
