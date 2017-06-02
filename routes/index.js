@@ -4,7 +4,14 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/pull-requests', (req, res) => {
-  console.log(req.headers);
+  const body = req.body;
+  console.log(body);
+
+  const action = body.action;
+  console.log(action);
+  //if (action !== 'review_requested') {
+  //
+  //}
 });
 
 router.get('*', (req, res) => {
