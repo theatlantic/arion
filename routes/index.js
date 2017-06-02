@@ -48,12 +48,24 @@ router.post('/pull-requests', (req, res) => {
   const prTitle = pullRequest.title;
   const prSubmitter = pullRequest.user;
   const prLogin = prSubmitter.login;
+  const prBody = pullRequest.body;
 
   const payload = {
     channel: username,
-    text: `*${prLogin}* has tagged you in a Pull Request: <${prUrl}|${prTitle}>`,
+    //text: `*${prLogin}* has tagged you in a Pull Request: <${prUrl}|${prTitle}>`,
     icon_emoji: ':octocat:',
     username: 'Pull Request Bot'
+    attachments: [
+      {
+          "fallback": "*{prLogin}* has requested your review",
+          "color": "#cc0099",
+          "pretext": "*{prLogin}* has requested your review",
+          "author_name": "jeremy-green",
+          "title": prTitle,
+          "title_link": prUrl,
+          "text": prBody
+      }
+    ]
   };
 
   request.post({
