@@ -5,16 +5,14 @@ const router = express.Router();
 
 router.post('/pull-requests', (req, res) => {
   const body = req.body;
-  console.log(typeof body);
-
   const action = body.action;
-  console.log(action);
+
   if (action !== 'review_requested') {
-    res.status(400).send('Bad Request');
-    return;
+    return res.status(204).end();
   }
 
-
+  console.log(body);
+  return res.status(200).end();
 });
 
 router.get('*', (req, res) => {
