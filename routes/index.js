@@ -44,7 +44,7 @@ router.post('/pull-requests', (req, res) => {
   //'{"channel": "' + body.text + '", "text": "' + message + '", "icon_emoji": ":shush:", "username": "Shush.Bot"}'
   const payload = {
     channel: username,
-    message: 'I love jeremy',
+    text: 'I love jeremy',
     icon_emoji: ':react:',
     username: 'Pull Request Bot'
   };
