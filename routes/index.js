@@ -32,7 +32,10 @@ router.post('/pull-requests', (req, res) => {
     'whatisjasongoldstein': '@jason',
     'defbyte': '@cdavis',
     'jeremy-green': '@jgreen',
-    'pkafei': '@pburton'
+    'pkafei': '@pburton',
+    'kjmahoney': '@kmahoney',
+    'djbrinkeroff': '@djbrinkeroff',
+    'benharrisonD59': '@bharrison'
   };
   const username = userMap[login];
 
@@ -48,7 +51,7 @@ router.post('/pull-requests', (req, res) => {
 
   const payload = {
     channel: username,
-    text: `*${prLogin}* has tagged you in a Pull Request. Please review <${prUrl}|${prTitle}>`,
+    text: `*${prLogin}* has tagged you in a Pull Request: <${prUrl}|${prTitle}>`,
     icon_emoji: ':octocat:',
     username: 'Pull Request Bot'
   };
