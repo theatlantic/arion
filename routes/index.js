@@ -41,7 +41,7 @@ router.post('/pull-requests', (req, res) => {
 
 
   const pullRequest = body.pull_request;
-  const prUrl = pullRequest.url;
+  const prUrl = pullRequest.html_url;
   const prTitle = pullRequest.title;
   const prSubmitter = pullRequest.user;
   const prLogin = prSubmitter.login;
@@ -50,7 +50,7 @@ router.post('/pull-requests', (req, res) => {
   //'{"channel": "' + body.text + '", "text": "' + message + '", "icon_emoji": ":shush:", "username": "Shush.Bot"}'
   const payload = {
     channel: username,
-    text: `${prLogin} has tagged you in a Pull Request. Please review <${prUrl}|${prTitle}>`,
+    text: `*${prLogin}* has tagged you in a Pull Request. Please review <${prUrl}|${prTitle}>`,
     icon_emoji: ':octocat:',
     username: 'Pull Request Bot'
   };
