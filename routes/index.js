@@ -54,11 +54,11 @@ router.post('/pull-requests', (req, res) => {
     channel: username,
     icon_emoji: ':octocat:',
     username: 'Pull Request Bot',
+    text: `*${prLogin}* has requested your review`,
     attachments: [
       {
           "fallback": `*${prLogin}* has requested your review`,
           "color": "#cc0099",
-          "pretext": `*${prLogin}* has requested your review`,
           "author_name": `${prLogin}`,
           "title": prTitle,
           "title_link": prUrl,
