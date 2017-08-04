@@ -68,6 +68,7 @@ const sendStatus = (res, status) => {
  */
 const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
   console.log('channel', channel);
+  console.log('author', author);
 
   let messageBody = body;
 
@@ -122,7 +123,7 @@ router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
 
-  console.log(body);
+  console.log('pull review', body);
 
   if (!action) {
     return sendStatus(res, 204);
@@ -168,6 +169,8 @@ router.post('/pull-review', (req, res) => {
 router.post('/pull-requests', (req, res) => {
   const body = req.body;
   const action = body.action;
+
+  console.log('pull requests', body);
 
   if (action !== 'review_requested') {
     return sendStatus(res, 204);
