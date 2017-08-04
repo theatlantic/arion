@@ -67,22 +67,35 @@ const sendStatus = (res, status) => {
  * @return {Object}                    The formatted Slack response
  */
 const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
+  let messageBody = body;
+  const dedupe = new Set(body.match(/!\[(.*?)\]\((.*?)\)/g).map((res) => {
+    if (!res) { return; }
+    messageBody = messageBody.replace(res, '');
+    return res.match(/\(([^)]+)\)/)[1];
+  }));
+
+  const attachments = [{
+    title: title,
+    title_link: title_link,
+    author_icon: avatar_url,
+    author_name: author,
+    fallback: text,
+    text: messageBody,
+    color: color,
+    mrkdwn_in: ['pretext', 'text', 'fields']
+  }];
+
+  if (dedupe.size) {
+    attachments[0].image_url = [...dedupe][0];
+  }
+
   return {
     channel: channel,
     icon_emoji: ':arion:',
     username: 'Arion',
     text: text,
     mrkdwn: true,
-    attachments: [{
-      title: title,
-      title_link: title_link,
-      author_icon: avatar_url,
-      author_name: author,
-      fallback: text,
-      text: body,
-      color: color,
-      mrkdwn_in: ['pretext', 'text', 'fields']
-    }]
+    attachments: attachments
   };
 };
 
