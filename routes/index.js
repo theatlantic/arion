@@ -142,7 +142,7 @@ router.post('/pull-review', (req, res) => {
   const avatarUrl = reviewer.avatar_url;
 
   const pull_request = body.pull_request;
-  const login = pull_request.login;
+  const login = pull_request.user.login;
 
   console.log('login', login);
   console.log('userMap', userMap[login]);
