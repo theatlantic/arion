@@ -117,7 +117,7 @@ router.post('/pull-review', (req, res) => {
   const login = pull_request.login;
   const channel = userMap[login];
 
-  if (action === 'commented' && !review.body) {
+  if (state === 'commented' && review.body === null) {
     return sendStatus(res, 200);
   }
 
