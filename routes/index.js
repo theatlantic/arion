@@ -61,13 +61,13 @@ router.post('/pull-requests', (req, res) => {
     text: `*${prLogin}* has requested your review`,
     attachments: [
       {
-          "fallback": `*${prLogin}* has requested your review`,
-          "color": "#cc0099",
-          "author_name": `${prLogin}`,
-          "title": prTitle,
-          "title_link": prUrl,
-          "text": prBody,
-          "mrkdwn_in": ["text"]
+          fallback: `*${prLogin}* has requested your review`,
+          color: '#cc0099',
+          author_name: `${prLogin}`,
+          title: prTitle,
+          title_link: prUrl,
+          text: prBody,
+          mrkdwn_in: ['text']
       }
     ]
   };
