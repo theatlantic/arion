@@ -95,6 +95,8 @@ router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
 
+  console.log(body);
+
   if (!action) {
     return sendStatus(res, 204);
   }
