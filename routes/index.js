@@ -115,7 +115,7 @@ router.post('/pull-review', (req, res) => {
 
   const payload = getSlackResponse({
     title: pull_request.title,
-    title_url: review.html_url,
+    title_link: review.html_url,
     channel: channel,
     author: reviewerLogin,
     body: review.body,
