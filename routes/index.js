@@ -68,6 +68,10 @@ const sendStatus = (res, status) => {
  */
 const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
   let messageBody = body;
+
+  // search the message body for markdown image syntax
+  // remove them from the body
+  // dedupe them using a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
   const dedupe = new Set(body.match(/!\[(.*?)\]\((.*?)\)/g).map((res) => {
     if (!res) { return; }
     messageBody = messageBody.replace(res, '');
@@ -85,12 +89,14 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
     mrkdwn_in: ['pretext', 'text', 'fields']
   }];
 
+  // if deduped images has a length, attach the first image, send the rest
   if (dedupe.size) {
     const dedupedImages = [...dedupe];
     attachments[0].image_url = dedupedImages.shift();
-    dedupedImages.map((d) => {
+    dedupedImages.map((imageUrl) => {
       attachments.push({
-        image_url: d
+        image_url: imageUrl,
+        color: color
       });
     });
   }
