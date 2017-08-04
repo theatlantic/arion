@@ -72,8 +72,7 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
   // search the message body for markdown image syntax
   // remove them from the body
   // dedupe them using a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-  const dedupe = new Set(body.match(/!\[(.*?)\]\((.*?)\)/g).map((res) => {
-    if (!res) { return; }
+  const dedupe = new Set((body.match(/!\[(.*?)\]\((.*?)\)/g) || []).map((res) => {
     messageBody = messageBody.replace(res, '');
     return res.match(/\(([^)]+)\)/)[1];
   }));
