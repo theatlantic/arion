@@ -178,15 +178,15 @@ router.post('/pull-requests', (req, res) => {
     ]
   };
 
-  //request.post({
-  //  url: webhookUrl,
-  //  form: {
-  //    payload: JSON.stringify(payload)
-  //  }
-  //});
+  request.post({
+    url: webhookUrl,
+    form: {
+      payload: JSON.stringify(payload)
+    }
+  });
 
   // call Slack
-  makeRequest(webhookUrl, payload);
+  //makeRequest(webhookUrl, payload);
 
   return sendStatus(res, 200);
 });
