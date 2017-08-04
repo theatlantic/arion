@@ -1,5 +1,4 @@
 'use strict';
-
 const express = require('express');
 const path = require('path');
 const favicon = require('serve-favicon');
@@ -7,7 +6,6 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const routes = require('./routes/index');
-
 const app = express();
 
 const env = process.env.NODE_ENV || 'development';
@@ -50,10 +48,9 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
-    error: {},
-    title: 'error'
+    error: err
   });
 });
 
