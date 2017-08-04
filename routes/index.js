@@ -6,13 +6,128 @@ const router = express.Router();
 
 const webhookUrl = process.env.SLACK_WEBHOOK;
 
+const userMap = {
+  'whatisjasongoldstein': '@jason',
+  'defbyte': '@cdavis',
+  'jeremy-green': '@jgreen',
+  'pkafei': '@pburton',
+  'kjmahoney': '@kmahoney',
+  'djbrinkerhoff': '@djbrinkerhoff',
+  'benharrisonD59': '@bharrison',
+  'joshmaker': '@joshwest',
+  'atlanticashley': '@ashley',
+  'samsjchi': '@schi',
+  'joeyquarters': '@jnichols',
+};
+
+const statusColors = {
+  'approved': '#006600',
+  'commented': '#666666',
+  'changes_requested': '#ff0000',
+  'submitted': '#cc0099'
+};
+
+
+/**
+ * Make a request to the passed URL
+ * @param  {String}   u      The URL of the request
+ * @param  {Function} cb     The callback
+ * @param  {Object}   params The params for the build
+ */
+const makeRequest = (u, params, cb) => {
+  request.post({
+    url: u,
+    form: JSON.stringify(payload)
+  }, cb);
+};
+
+
+/**
+ * Send a status
+ * @param  {Objet} res     The response object
+ * @param  {Number} status The response code
+ * @return {Null}          No clue
+ */
+const sendStatus = (res, status) => {
+  return res.status(status).end();
+};
+
+
+/**
+ * Get a formatted Slack response object
+ * @param  {String} options.channel    The user to notify
+ * @param  {String} options.author     The reviewers username
+ * @param  {String} options.text       The title of the notification (Slack calls this text)
+ * @param  {String} options.color      The attachment color
+ * @param  {String} options.title      The attachment title
+ * @param  {String} options.title_link The link to the PR comment
+ * @param  {String} options.body       The PR comment body
+ * @return {Object}                    The formatted Slack response
+ */
+const getSlackResponse = ({channel, author, text, color, title, title_link, body}) => {
+  return {
+    channel: channel,
+    icon_emoji: ':waaat:',
+    username: 'Arion',
+    text: text,
+    attachments: [{
+      title: title,
+      title_link: title_link,
+      author_name: author,
+      fallback: text,
+      text: body,
+      color: color,
+      mrkdwn_in: ['text']
+    }]
+  };
+};
+
+
 if (!webhookUrl) {
   process.exit();
 }
 
-const sendStatus = (res, status) => {
-  return res.status(status).end();
-};
+
+router.post('/pull-review', (req, res) => {
+  const body = req.body;
+  const action = body.action;
+
+  const actionsList = ['submitted'];
+
+  if (!action.includes(actionsList)) {
+    return sendStatus(res, 204);
+  }
+
+  const review = body.review;
+  const state = review.state;
+  const reviewer = review.user;
+  const reviewerLogin = reviewer.login;
+
+  const pull_request = body.pull_request;
+  const login = pull_request.login;
+  const channel = userMap[login];
+
+  const payload = getSlackResponse({
+    title: pull_request.title,
+    title_url: review.html_url,
+    channel: channel,
+    author: reviewerLogin,
+    body: review.body,
+    text: `*${reviewerLogin}* has ${state.split('_').join(' ')} on your Pull Request`,
+    color: statusColors[review.state]
+  });
+
+  // call Slack
+  makeRequest(webhookUrl, payload);
+  return sendStatus(res, 200);
+});
+
+
+
+
+
+
+
 
 router.post('/pull-requests', (req, res) => {
   const body = req.body;
@@ -28,19 +143,6 @@ router.post('/pull-requests', (req, res) => {
   }
 
   const login = reviewer.login;
-  const userMap = {
-    'whatisjasongoldstein': '@jason',
-    'defbyte': '@cdavis',
-    'jeremy-green': '@jgreen',
-    'pkafei': '@pburton',
-    'kjmahoney': '@kmahoney',
-    'djbrinkerhoff': '@djbrinkerhoff',
-    'benharrisonD59': '@bharrison',
-    'joshmaker': '@joshwest',
-    'atlanticashley': '@ashley',
-    'samsjchi': '@schi',
-    'joeyquarters': '@jnichols',
-  };
   const username = userMap[login];
 
   if (!username) {
@@ -72,12 +174,15 @@ router.post('/pull-requests', (req, res) => {
     ]
   };
 
-  request.post({
-    url: webhookUrl,
-    form: {
-      payload: JSON.stringify(payload)
-    }
-  });
+  //request.post({
+  //  url: webhookUrl,
+  //  form: {
+  //    payload: JSON.stringify(payload)
+  //  }
+  //});
+
+  // call Slack
+  makeRequest(webhookUrl, payload);
 
   return sendStatus(res, 200);
 });
