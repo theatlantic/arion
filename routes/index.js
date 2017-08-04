@@ -30,11 +30,11 @@ const statusColors = {
 
 /**
  * Make a request to the passed URL
- * @param  {String}   u      The URL of the request
- * @param  {Function} cb     The callback
- * @param  {Object}   params The params for the build
+ * @param  {String}   u       The URL of the request
+ * @param  {Object}   payload The params for the build
+ * @param  {Function} cb      The callback
  */
-const makeRequest = (u, params, cb) => {
+const makeRequest = (u, payload, cb) => {
   request.post({
     url: u,
     form: JSON.stringify(payload)
@@ -91,6 +91,10 @@ if (!webhookUrl) {
 router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
+
+  if (!action) {
+    return sendStatus(res, 204);
+  }
 
   const actionsList = ['submitted'];
 
@@ -163,13 +167,13 @@ router.post('/pull-requests', (req, res) => {
     text: `*${prLogin}* has requested your review`,
     attachments: [
       {
-          fallback: `*${prLogin}* has requested your review`,
-          color: '#cc0099',
-          author_name: `${prLogin}`,
-          title: prTitle,
-          title_link: prUrl,
-          text: prBody,
-          mrkdwn_in: ['text']
+        fallback: `*${prLogin}* has requested your review`,
+        color: '#cc0099',
+        author_name: `${prLogin}`,
+        title: prTitle,
+        title_link: prUrl,
+        text: prBody,
+        mrkdwn_in: ['text']
       }
     ]
   };
