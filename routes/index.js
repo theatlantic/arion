@@ -69,7 +69,7 @@ const sendStatus = (res, status) => {
 const getSlackResponse = ({channel, author, text, color, title, title_link, body}) => {
   return {
     channel: channel,
-    icon_emoji: ':waaat:',
+    icon_emoji: ':arion:',
     username: 'Arion',
     text: text,
     attachments: [{
