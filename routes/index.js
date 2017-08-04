@@ -37,7 +37,9 @@ const statusColors = {
 const makeRequest = (u, payload, cb) => {
   request.post({
     url: u,
-    form: JSON.stringify(payload)
+    form: {
+      payload: JSON.stringify(payload)
+    }
   }, cb);
 };
 
@@ -178,15 +180,8 @@ router.post('/pull-requests', (req, res) => {
     ]
   };
 
-  request.post({
-    url: webhookUrl,
-    form: {
-      payload: JSON.stringify(payload)
-    }
-  });
-
   // call Slack
-  //makeRequest(webhookUrl, payload);
+  makeRequest(webhookUrl, payload);
 
   return sendStatus(res, 200);
 });
