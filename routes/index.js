@@ -67,6 +67,8 @@ const sendStatus = (res, status) => {
  * @return {Object}                    The formatted Slack response
  */
 const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
+  console.log('channel', channel);
+
   let messageBody = body;
 
   // search the message body for markdown image syntax
@@ -119,6 +121,8 @@ if (!webhookUrl) {
 router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
+
+  console.log(body);
 
   if (!action) {
     return sendStatus(res, 204);
