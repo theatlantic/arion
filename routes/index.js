@@ -117,6 +117,10 @@ router.post('/pull-review', (req, res) => {
   const login = pull_request.login;
   const channel = userMap[login];
 
+  if (action === 'commented' && !review.body) {
+    return sendStatus(res, 200);
+  }
+
   const payload = getSlackResponse({
     title: pull_request.title,
     title_link: review.html_url,
