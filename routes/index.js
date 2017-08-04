@@ -72,6 +72,7 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
     icon_emoji: ':arion:',
     username: 'Arion',
     text: text,
+    mrkdwn: true,
     attachments: [{
       title: title,
       title_link: title_link,
@@ -80,7 +81,7 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
       fallback: text,
       text: body,
       color: color,
-      mrkdwn_in: ['text']
+      mrkdwn_in: ['pretext', 'text', 'fields']
     }]
   };
 };
