@@ -86,7 +86,13 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
   }];
 
   if (dedupe.size) {
-    attachments[0].image_url = [...dedupe][0];
+    const dedupedImages = [...dedupe];
+    attachments[0].image_url = dedupedImages.shift();
+    dedupedImages.map((d) => {
+      attachments.push({
+        image_url: d
+      });
+    });
   }
 
   return {
@@ -108,8 +114,6 @@ if (!webhookUrl) {
 router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
-
-  console.log(body);
 
   if (!action) {
     return sendStatus(res, 204);
