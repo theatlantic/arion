@@ -66,7 +66,7 @@ const sendStatus = (res, status) => {
  * @param  {String} options.body       The PR comment body
  * @return {Object}                    The formatted Slack response
  */
-const getSlackResponse = ({channel, author, text, color, title, title_link, body}) => {
+const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
   return {
     channel: channel,
     icon_emoji: ':arion:',
@@ -75,6 +75,7 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
     attachments: [{
       title: title,
       title_link: title_link,
+      author_icon: avatar_url,
       author_name: author,
       fallback: text,
       text: body,
@@ -108,6 +109,7 @@ router.post('/pull-review', (req, res) => {
   const state = review.state;
   const reviewer = review.user;
   const reviewerLogin = reviewer.login;
+  const avatarUrl = reviewer.avatar_url;
 
   const pull_request = body.pull_request;
   const login = pull_request.login;
@@ -118,6 +120,7 @@ router.post('/pull-review', (req, res) => {
     title_link: review.html_url,
     channel: channel,
     author: reviewerLogin,
+    avatar_url: avatarUrl,
     body: review.body,
     text: `*${reviewerLogin}* has ${state.split('_').join(' ')} on your Pull Request`,
     color: statusColors[review.state]
@@ -129,12 +132,6 @@ router.post('/pull-review', (req, res) => {
 });
 
 
-
-
-
-
-
-
 router.post('/pull-requests', (req, res) => {
   const body = req.body;
   const action = body.action;
@@ -144,16 +141,9 @@ router.post('/pull-requests', (req, res) => {
   }
 
   const reviewer = body.requested_reviewer;
-  if (!reviewer) {
-    return sendStatus(res, 204);
-  }
 
   const login = reviewer.login;
   const username = userMap[login];
-
-  if (!username) {
-    return sendStatus(res, 204);
-  }
 
   const pullRequest = body.pull_request;
   const prUrl = pullRequest.html_url;
@@ -161,12 +151,14 @@ router.post('/pull-requests', (req, res) => {
   const prSubmitter = pullRequest.user;
   const prLogin = prSubmitter.login;
   const prBody = pullRequest.body;
+  const avatarUrl = prSubmitter.avatar_url;
 
   const payload = getSlackResponse({
     title: prTitle,
     title_link: prUrl,
     channel: username,
     author: prLogin,
+    avatar_url: avatarUrl,
     body: prBody,
     text: `*${prLogin}* has requested your review`,
     color: statusColors.submitted
