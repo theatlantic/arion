@@ -162,23 +162,15 @@ router.post('/pull-requests', (req, res) => {
   const prLogin = prSubmitter.login;
   const prBody = pullRequest.body;
 
-  const payload = {
+  const payload = getSlackResponse({
+    title: prTitle,
+    title_link: prUrl,
     channel: username,
-    icon_emoji: ':octocat:',
-    username: 'Pull Request Bot',
+    author: prLogin,
+    body: prBody,
     text: `*${prLogin}* has requested your review`,
-    attachments: [
-      {
-        fallback: `*${prLogin}* has requested your review`,
-        color: '#cc0099',
-        author_name: `${prLogin}`,
-        title: prTitle,
-        title_link: prUrl,
-        text: prBody,
-        mrkdwn_in: ['text']
-      }
-    ]
-  };
+    color: statusColors.submitted
+  });
 
   // call Slack
   makeRequest(webhookUrl, payload);
