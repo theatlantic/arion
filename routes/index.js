@@ -103,7 +103,7 @@ router.post('/pull-review', (req, res) => {
 
   const actionsList = ['submitted'];
 
-  if (!action.includes(actionsList)) {
+  if (!actionsList.includes(action)) {
     return sendStatus(res, 204);
   }
 
