@@ -67,9 +67,6 @@ const sendStatus = (res, status) => {
  * @return {Object}                    The formatted Slack response
  */
 const getSlackResponse = ({channel, author, text, color, title, title_link, body, avatar_url}) => {
-  console.log('channel', channel);
-  console.log('author', author);
-
   let messageBody = body;
 
   // search the message body for markdown image syntax
@@ -123,8 +120,6 @@ router.post('/pull-review', (req, res) => {
   const body = req.body;
   const action = body.action;
 
-  console.log('pull review', body);
-
   if (!action) {
     return sendStatus(res, 204);
   }
@@ -144,12 +139,14 @@ router.post('/pull-review', (req, res) => {
   const pull_request = body.pull_request;
   const login = pull_request.user.login;
 
-  console.log('login', login);
-  console.log('userMap', userMap[login]);
   const channel = userMap[login];
 
   if (state === 'commented' && review.body === null) {
     return sendStatus(res, 200);
+  }
+
+  if (!channel) {
+    return sendStatus(res, 204);
   }
 
   const payload = getSlackResponse({
@@ -173,8 +170,6 @@ router.post('/pull-requests', (req, res) => {
   const body = req.body;
   const action = body.action;
 
-  console.log('pull requests', body);
-
   if (action !== 'review_requested') {
     return sendStatus(res, 204);
   }
@@ -183,6 +178,10 @@ router.post('/pull-requests', (req, res) => {
 
   const login = reviewer.login;
   const username = userMap[login];
+
+  if (!username) {
+    return sendStatus(res, 204);
+  }
 
   const pullRequest = body.pull_request;
   const prUrl = pullRequest.html_url;
