@@ -18,6 +18,7 @@ const userMap = {
   'atlanticashley': '@ashley',
   'samsjchi': '@schi',
   'joeyquarters': '@jnichols',
+  'madisonmcveigh': '@madisonmcveigh',
 };
 
 const statusColors = {
