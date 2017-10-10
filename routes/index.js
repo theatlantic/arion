@@ -10,7 +10,6 @@ const userMap = {
   'whatisjasongoldstein': '@jason',
   'defbyte': '@cdavis',
   'jeremy-green': '@jgreen',
-  'pkafei': '@pburton',
   'kjmahoney': '@kmahoney',
   'djbrinkerhoff': '@djbrinkerhoff',
   'benharrisonD59': '@bharrison',
@@ -19,6 +18,7 @@ const userMap = {
   'samsjchi': '@schi',
   'joeyquarters': '@jnichols',
   'madisonmcveigh': '@madisonmcveigh',
+  'obswork': '@obizuwork'
 };
 
 const statusColors = {
