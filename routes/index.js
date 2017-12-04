@@ -18,7 +18,8 @@ const userMap = {
   'samsjchi': '@schi',
   'joeyquarters': '@jnichols',
   'madisonmcveigh': '@madisonmcveigh',
-  'obswork': '@obizuwork'
+  'obswork': '@obizuwork',
+  'rekhers': '@rtenjarla'
 };
 
 const statusColors = {
