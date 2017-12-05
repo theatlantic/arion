@@ -119,11 +119,35 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
 };
 
 
-function handleTeamRequest(team) {
+function handleTeamRequest(team, pullRequest) {
   const members = teamMap[team.slug];
   members.map((member) => {
-    console.log(member);
+    callSlack(userMap[username], pullRequest);
   });
+}
+
+function callSlack(username, pullRequest) {
+  //const pullRequest = pull_request;
+  const prUrl = pullRequest.html_url;
+  const prTitle = pullRequest.title;
+  const prSubmitter = pullRequest.user;
+  const prLogin = prSubmitter.login;
+  const prBody = pullRequest.body;
+  const avatarUrl = prSubmitter.avatar_url;
+
+  const payload = getSlackResponse({
+    title: prTitle,
+    title_link: prUrl,
+    channel: username,
+    author: prLogin,
+    avatar_url: avatarUrl,
+    body: prBody,
+    text: `*${prLogin}* has requested your review`,
+    color: statusColors.submitted
+  });
+
+  // call Slack
+  makeRequest(webhookUrl, payload);
 }
 
 
@@ -190,9 +214,10 @@ router.post('/pull-requests', (req, res) => {
     return sendStatus(res, 204);
   }
 
+  const pullRequest = body.pull_request;
   const team = body.requested_team;
   if (team) {
-    handleTeamRequest(team);
+    handleTeamRequest(team, pullRequest);
   }
 
   const reviewer = body.requested_reviewer;
@@ -211,7 +236,7 @@ router.post('/pull-requests', (req, res) => {
     return sendStatus(res, 204);
   }
 
-  const pullRequest = body.pull_request;
+  /*
   const prUrl = pullRequest.html_url;
   const prTitle = pullRequest.title;
   const prSubmitter = pullRequest.user;
@@ -228,7 +253,9 @@ router.post('/pull-requests', (req, res) => {
     body: prBody,
     text: `*${prLogin}* has requested your review`,
     color: statusColors.submitted
-  });
+  });*/
+
+  callSlack(username, pullRequest)
 
   // call Slack
   makeRequest(webhookUrl, payload);
