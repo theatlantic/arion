@@ -119,6 +119,11 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
 };
 
 
+function handleTeamRequest(team) {
+  console.log(team);
+}
+
+
 if (!webhookUrl) {
   process.exit();
 }
@@ -187,7 +192,16 @@ router.post('/pull-requests', (req, res) => {
   const reviewer = body.requested_reviewer;
 
   const login = reviewer.login;
-  const username = userMap[login];
+  let username;
+  if (login) {
+    username = userMap[login];
+  }
+
+  const team = body.requested_team;
+  if (team) {
+    handleTeamRequest(team);
+  }
+
 
   if (!username) {
     return sendStatus(res, 204);
