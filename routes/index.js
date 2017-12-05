@@ -187,21 +187,22 @@ router.post('/pull-requests', (req, res) => {
     return sendStatus(res, 204);
   }
 
-  console.log('HERE', body);
-
-  const reviewer = body.requested_reviewer;
-
-  const login = reviewer.login;
-  let username;
-  if (login) {
-    username = userMap[login];
-  }
-
   const team = body.requested_team;
   if (team) {
     handleTeamRequest(team);
   }
 
+  const reviewer = body.requested_reviewer;
+  let login;
+  let username;
+
+  if (reviewer) {
+    login = reviewer.login;
+  }
+
+  if (login) {
+    username = userMap[login];
+  }
 
   if (!username) {
     return sendStatus(res, 204);
