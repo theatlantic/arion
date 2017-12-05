@@ -24,7 +24,7 @@ const userMap = {
 
 const teamMap = {
   'front-end': [
-    '@jgreen'
+    'jeremy-green'
   ]
 };
 
@@ -120,7 +120,10 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
 
 
 function handleTeamRequest(team) {
-  console.log(team);
+  const members = teamMap[team.slug];
+  members.map((member) => {
+    console.log(member);
+  });
 }
 
 
