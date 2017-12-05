@@ -122,7 +122,7 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
 function handleTeamRequest(team, pullRequest) {
   const members = teamMap[team.slug];
   members.map((member) => {
-    callSlack(userMap[username], pullRequest);
+    callSlack(userMap[member], pullRequest);
   });
 }
 
