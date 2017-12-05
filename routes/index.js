@@ -22,6 +22,12 @@ const userMap = {
   'rekhers': '@rtenjarla'
 };
 
+const teamMap = {
+  'front-end': [
+    '@jgreen'
+  ]
+};
+
 const statusColors = {
   'approved': '#006600',
   'commented': '#666666',
@@ -175,6 +181,8 @@ router.post('/pull-requests', (req, res) => {
   if (action !== 'review_requested') {
     return sendStatus(res, 204);
   }
+
+  console.log('HERE', body);
 
   const reviewer = body.requested_reviewer;
 
