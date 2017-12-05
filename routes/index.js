@@ -24,7 +24,8 @@ const userMap = {
 
 const teamMap = {
   'front-end': [
-    'jeremy-green'
+    'jeremy-green',
+    'joeyquarters'
   ]
 };
 
@@ -121,9 +122,12 @@ const getSlackResponse = ({channel, author, text, color, title, title_link, body
 
 function handleTeamRequest(team, pullRequest) {
   const members = teamMap[team.slug];
-  members.map((member) => {
-    callSlack(userMap[member], pullRequest);
-  });
+  const prSubmitter = pullRequest.user;
+  const prLogin = prSubmitter.login;
+
+  members
+    .filter(member => member !== prLogin)
+    .map(member => callSlack(userMap[member], pullRequest));
 }
 
 function callSlack(username, pullRequest) {
