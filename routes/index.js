@@ -25,7 +25,9 @@ const userMap = {
 const teamMap = {
   'front-end': [
     'jeremy-green',
-    'joeyquarters'
+    'joeyquarters',
+    'kjmahoney',
+    'rekhers'
   ]
 };
 
