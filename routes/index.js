@@ -18,7 +18,8 @@ const userMap = {
   'joeyquarters': '@jnichols',
   'madisonmcveigh': '@madisonmcveigh',
   'obswork': '@obizuwork',
-  'rekhers': '@rtenjarla'
+  'rekhers': '@rtenjarla',
+  'colinxfleming': '@cfleming'
 };
 
 const teamMap = {
@@ -27,6 +28,13 @@ const teamMap = {
     'joeyquarters',
     'kjmahoney',
     'rekhers'
+  ],
+  'platform': [
+    'defbyte',
+    'whatisjasongoldstein',
+    'obswork',
+    'joshmaker',
+    'colinxfleming'
   ]
 };
 
