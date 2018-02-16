@@ -31,10 +31,12 @@ const teamMap = {
   ],
   'platform': [
     'defbyte',
-    'whatisjasongoldstein',
     'obswork',
     'joshmaker',
     'colinxfleming'
+  ],
+  'revenue': [
+    'whatisjasongoldstein',
   ]
 };
 
