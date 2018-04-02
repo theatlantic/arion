@@ -20,6 +20,7 @@ const userMap = {
   'obswork': '@obizuwork',
   'rekhers': '@rtenjarla',
   'colinxfleming': '@cfleming'
+  'dakrauth': '@dkrauth'
 };
 
 const teamMap = {
@@ -34,6 +35,7 @@ const teamMap = {
     'obswork',
     'joshmaker',
     'colinxfleming'
+    'dakrauth'
   ],
   'revenue': [
     'whatisjasongoldstein',
