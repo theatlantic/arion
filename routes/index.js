@@ -21,6 +21,7 @@ const userMap = {
   'rekhers': '@rtenjarla',
   'colinxfleming': '@cfleming',
   'dakrauth': '@dkrauth',
+  'marchdoe': '@dmarch'
 };
 
 const teamMap = {
@@ -28,7 +29,8 @@ const teamMap = {
     'jeremy-green',
     'joeyquarters',
     'kjmahoney',
-    'rekhers'
+    'rekhers',
+    'marchdoe'
   ],
   'platform': [
     'defbyte',
