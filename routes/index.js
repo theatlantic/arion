@@ -21,7 +21,8 @@ const userMap = {
   'rekhers': '@rtenjarla',
   'colinxfleming': '@cfleming',
   'dakrauth': '@dkrauth',
-  'marchdoe': '@dmarch'
+  'marchdoe': '@dmarch',
+  'nickflorin': '@nflorin',
 };
 
 const teamMap = {
@@ -38,6 +39,7 @@ const teamMap = {
     'joshmaker',
     'colinxfleming',
     'dakrauth',
+    'nickflorin',
   ],
   'revenue': [
     'whatisjasongoldstein',
