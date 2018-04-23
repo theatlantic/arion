@@ -23,6 +23,7 @@ const userMap = {
   'dakrauth': '@dkrauth',
   'marchdoe': '@dmarch',
   'nickflorin': '@nflorin',
+  'dfelsent': '@dfelsent',
 };
 
 const teamMap = {
@@ -43,6 +44,7 @@ const teamMap = {
   ],
   'revenue': [
     'whatisjasongoldstein',
+    'dfelsent',
   ]
 };
 
