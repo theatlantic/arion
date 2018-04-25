@@ -23,7 +23,7 @@ const userMap = {
   'dakrauth': '@dkrauth',
   'marchdoe': '@dmarch',
   'nickflorin': '@nflorin',
-  'dfelsent': '@dfelsent',
+  'dfelsent': '@dfelsenthal',
 };
 
 const teamMap = {
