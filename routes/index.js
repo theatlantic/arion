@@ -45,7 +45,11 @@ const teamMap = {
   'revenue': [
     'whatisjasongoldstein',
     'dfelsent',
-  ]
+  ],
+  'custom-ads': [
+    'whatisjasongoldstein',
+    'dfelsent',
+  ],
 };
 
 const statusColors = {
