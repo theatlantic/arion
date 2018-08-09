@@ -11,7 +11,6 @@ const userMap = {
   'defbyte': '@cdavis',
   'jeremy-green': '@jgreen',
   'kjmahoney': '@kmahoney',
-  'djbrinkerhoff': '@djbrinkerhoff',
   'joshmaker': '@joshwest',
   'atlanticashley': '@ashley',
   'samsjchi': '@schi',
