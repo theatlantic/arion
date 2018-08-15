@@ -22,7 +22,7 @@ const userMap = {
   'dakrauth': '@dkrauth',
   'marchdoe': '@dmarch',
   'nickflorin': '@nflorin',
-  'dfelsent': '@deb',
+  'dfelsent': '@UACC3TQUE',
   'mcbridem': '@mmcbride',
   'alisonbuki': '@abuki',
   'mhowsden': '@howsdini',
