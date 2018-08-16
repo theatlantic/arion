@@ -25,7 +25,7 @@ const userMap = {
   'dfelsent': '@UACC3TQUE',
   'mcbridem': '@mmcbride',
   'alisonbuki': '@abuki',
-  'mhowsden': '@howsdini',
+  'mhowsden': '@U7KR9K78E',
 };
 
 const teamMap = {
