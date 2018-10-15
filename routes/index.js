@@ -27,6 +27,7 @@ const userMap = {
   'alisonbuki': '@UBVC1ME5T',
   'mhowsden': '@U7KR9K78E',
   'ctrobich': '@U039YEE4K',
+  'jsabol': '@UDDPL7JKT',
 };
 
 const teamMap = {
@@ -49,10 +50,12 @@ const teamMap = {
   'revenue': [
     'whatisjasongoldstein',
     'dfelsent',
+    'jsabol',
   ],
   'custom-ads': [
     'whatisjasongoldstein',
     'dfelsent',
+    'jsabol',
   ],
 };
 
