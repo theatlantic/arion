@@ -37,7 +37,8 @@ const teamMap = {
     'kjmahoney',
     'rekhers',
     'marchdoe',
-    'alisonbuki'
+    'alisonbuki',
+    'whatisjasongoldstein',
   ],
   'platform': [
     'defbyte',
