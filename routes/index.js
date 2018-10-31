@@ -58,6 +58,10 @@ const teamMap = {
     'dfelsent',
     'jsabol',
   ],
+  'devops': [
+    'mhowsden',
+    'mcbridem',
+  ],
 };
 
 const statusColors = {
