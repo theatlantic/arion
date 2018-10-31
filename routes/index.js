@@ -9,7 +9,6 @@ const webhookUrl = process.env.SLACK_WEBHOOK;
 const userMap = {
   'whatisjasongoldstein': '@U02MU377J',
   'defbyte': '@U2MV58E79',
-  'jeremy-green': '@U1X1FL06T',
   'kjmahoney': '@U49087Q3Y',
   'joshmaker': '@U02MU7P6S',
   'atlanticashley': '@U23HW5399',
@@ -18,7 +17,6 @@ const userMap = {
   'madisonmcveigh': '@U56B8K0LR',
   'obswork': '@U7FV51935',
   'rekhers': '@U89A59B28',
-  'colinxfleming': '@U97N12JP4',
   'dakrauth': '@UA0M2NHP0',
   'marchdoe': '@UA0B3200G',
   'nickflorin': '@UA4C9SW22',
@@ -32,7 +30,6 @@ const userMap = {
 
 const teamMap = {
   'front-end': [
-    'jeremy-green',
     'joeyquarters',
     'kjmahoney',
     'rekhers',
@@ -44,7 +41,6 @@ const teamMap = {
     'defbyte',
     'obswork',
     'joshmaker',
-    'colinxfleming',
     'dakrauth',
     'nickflorin',
   ],
