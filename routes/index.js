@@ -12,13 +12,10 @@ const userMap = {
   'kjmahoney': '@U49087Q3Y',
   'joshmaker': '@U02MU7P6S',
   'atlanticashley': '@U23HW5399',
-  'samsjchi': '@U4W9985Q8',
-  'joeyquarters': '@U5S9LJFB4',
   'madisonmcveigh': '@U56B8K0LR',
   'obswork': '@U7FV51935',
   'rekhers': '@U89A59B28',
   'dakrauth': '@UA0M2NHP0',
-  'marchdoe': '@UA0B3200G',
   'nickflorin': '@UA4C9SW22',
   'dfelsent': '@UACC3TQUE',
   'mcbridem': '@U9W8LFEJZ',
@@ -30,10 +27,8 @@ const userMap = {
 
 const teamMap = {
   'front-end': [
-    'joeyquarters',
     'kjmahoney',
     'rekhers',
-    'marchdoe',
     'alisonbuki',
     'whatisjasongoldstein',
     'dfelsent',
