@@ -23,6 +23,7 @@ const userMap = {
   'mhowsden': '@U7KR9K78E',
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
+  'bellawoo': '@UGG0F4ZQU',
 };
 
 const teamMap = {
@@ -40,6 +41,7 @@ const teamMap = {
     'joshmaker',
     'dakrauth',
     'nickflorin',
+    'bellawoo',
   ],
   'revenue': [
     'whatisjasongoldstein',
