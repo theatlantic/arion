@@ -24,6 +24,7 @@ const userMap = {
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
+  'ctbarna': '@U02MU6AR4',
 };
 
 const teamMap = {
@@ -34,6 +35,7 @@ const teamMap = {
     'whatisjasongoldstein',
     'dfelsent',
     'jsabol',
+    'ctbarna',
   ],
   'platform': [
     'defbyte',
