@@ -24,6 +24,7 @@ const userMap = {
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
+  'lorenries': '@UH8R9V5A6',
 };
 
 const teamMap = {
@@ -31,6 +32,7 @@ const teamMap = {
     'kjmahoney',
     'rekhers',
     'alisonbuki',
+    'lorenries',
   ],
   'platform': [
     'defbyte',
