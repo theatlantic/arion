@@ -228,7 +228,7 @@ router.post('/pull-review', (req, res) => {
     author: reviewerLogin,
     avatar_url: avatarUrl,
     body: review.body,
-    text: `*${reviewerLogin}* has ${state.split('_').join(' ')} on your Pull Request`,
+    text: `*${reviewerLogin}* has ${state.split('_').join(' ')} ${state === "approved" || state === "APPROVED" ? "" : "on "}your Pull Request`,
     color: statusColors[review.state]
   });
 
