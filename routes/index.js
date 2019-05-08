@@ -25,7 +25,7 @@ const userMap = {
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
   'lorenries': '@UH8R9V5A6',
-  'akorpachev': '@UBMB4JF9B',
+  'artkay': '@UBMB4JF9B',
 };
 
 const teamMap = {
@@ -58,7 +58,7 @@ const teamMap = {
     'mcbridem',
   ],
   'data': [
-    'art',
+    'artkay',
   ],
 };
 

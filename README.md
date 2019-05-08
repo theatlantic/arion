@@ -26,7 +26,8 @@ execute a redelivery.
 Teams and individuals are defined in the `routes/index.js` file. If you want
 to add an individual to the "userMap" array, you can look up his or her Slack
 ID by viewing the user's profile in Slack and selecting "Copy member ID" from
-the drop-down menu near the "Call" and "Message" buttons.
+the drop-down menu near the "Call" and "Message" buttons. This maps the user's
+github account with their Slack ID.
 
 After receiving a payload from GitHub, Arion processes it and sends it to a
 Slack hook defined by a `SLACK_WEBHOOK` environment variable. This hook is
