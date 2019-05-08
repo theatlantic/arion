@@ -26,6 +26,8 @@ const userMap = {
   'bellawoo': '@UGG0F4ZQU',
   'lorenries': '@UH8R9V5A6',
   'artkay': '@UBMB4JF9B',
+  'aedalton': '@UB6VD284W',
+  'evansandhaus': '@U9Z46U5Q9',
 };
 
 const teamMap = {
@@ -57,8 +59,10 @@ const teamMap = {
     'mhowsden',
     'mcbridem',
   ],
-  'data': [
+  'data-engineering': [
     'artkay',
+    'aedalton',
+    'evansandhaus',
   ],
 };
 
