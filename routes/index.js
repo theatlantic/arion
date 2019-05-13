@@ -28,6 +28,7 @@ const userMap = {
   'artkay': '@UBMB4JF9B',
   'aedalton': '@UB6VD284W',
   'evansandhaus': '@U9Z46U5Q9',
+  'lizafloyd': '@UJFGQ1GPK'
 };
 
 const teamMap = {
@@ -36,6 +37,7 @@ const teamMap = {
     'rekhers',
     'alisonbuki',
     'lorenries',
+    'lizafloyd'
   ],
   'platform': [
     'defbyte',
