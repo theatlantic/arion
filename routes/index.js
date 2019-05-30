@@ -18,7 +18,6 @@ const userMap = {
   'dakrauth': '@UA0M2NHP0',
   'nickflorin': '@UA4C9SW22',
   'dfelsent': '@UACC3TQUE',
-  'mcbridem': '@U9W8LFEJZ',
   'alisonbuki': '@UBVC1ME5T',
   'mhowsden': '@U7KR9K78E',
   'ctrobich': '@U039YEE4K',
@@ -59,7 +58,6 @@ const teamMap = {
   ],
   'devops': [
     'mhowsden',
-    'mcbridem',
   ],
   'data-engineering': [
     'artkay',
