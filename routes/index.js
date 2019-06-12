@@ -27,7 +27,12 @@ const userMap = {
   'artkay': '@UBMB4JF9B',
   'aedalton': '@UB6VD284W',
   'evansandhaus': '@U9Z46U5Q9',
-  'lizafloyd': '@UJFGQ1GPK'
+  'lizafloyd': '@UJFGQ1GPK',
+  'pschaffer': '@U9YBE64ES',
+  'mroman09': '@UB4J8TM6U',
+  'jlemonias': '@UGMLR5WQG',
+  'georgereynolds2013': '@UBM72EPSP',
+  'ChaimKesler': '@UAYNQ9E0N'
 };
 
 const teamMap = {
@@ -63,6 +68,13 @@ const teamMap = {
     'artkay',
     'aedalton',
     'evansandhaus',
+  ],
+  'data-science': [
+    'pschaffer',
+    'mroman09',
+    'jlemonias',
+    'georgereynolds2013',
+    'ChaimKesler',
   ],
 };
 
