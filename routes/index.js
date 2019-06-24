@@ -7,12 +7,9 @@ const router = express.Router();
 const webhookUrl = process.env.SLACK_WEBHOOK;
 
 const userMap = {
-  'whatisjasongoldstein': '@U02MU377J',
   'defbyte': '@U2MV58E79',
   'kjmahoney': '@U49087Q3Y',
   'joshmaker': '@U02MU7P6S',
-  'atlanticashley': '@U23HW5399',
-  'madisonmcveigh': '@U56B8K0LR',
   'obswork': '@U7FV51935',
   'rekhers': '@U89A59B28',
   'dakrauth': '@UA0M2NHP0',
@@ -52,12 +49,10 @@ const teamMap = {
     'bellawoo',
   ],
   'revenue': [
-    'whatisjasongoldstein',
     'dfelsent',
     'jsabol',
   ],
   'custom-ads': [
-    'whatisjasongoldstein',
     'dfelsent',
     'jsabol',
   ],
