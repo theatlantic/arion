@@ -20,7 +20,6 @@ const userMap = {
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
-  'lorenries': '@UH8R9V5A6',
   'artkay': '@UBMB4JF9B',
   'aedalton': '@UB6VD284W',
   'evansandhaus': '@U9Z46U5Q9',
@@ -37,7 +36,6 @@ const teamMap = {
     'kjmahoney',
     'rekhers',
     'alisonbuki',
-    'lorenries',
     'lizafloyd'
   ],
   'platform': [
