@@ -15,7 +15,6 @@ const userMap = {
   'dakrauth': '@UA0M2NHP0',
   'nickflorin': '@UA4C9SW22',
   'dfelsent': '@UACC3TQUE',
-  'alisonbuki': '@UBVC1ME5T',
   'mhowsden': '@U7KR9K78E',
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
@@ -35,7 +34,6 @@ const teamMap = {
   'front-end': [
     'kjmahoney',
     'rekhers',
-    'alisonbuki',
     'lizafloyd'
   ],
   'platform': [
