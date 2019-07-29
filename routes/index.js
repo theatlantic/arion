@@ -15,7 +15,6 @@ const userMap = {
   'dakrauth': '@UA0M2NHP0',
   'nickflorin': '@UA4C9SW22',
   'dfelsent': '@UACC3TQUE',
-  'mhowsden': '@U7KR9K78E',
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
@@ -51,9 +50,6 @@ const teamMap = {
   'custom-ads': [
     'dfelsent',
     'jsabol',
-  ],
-  'devops': [
-    'mhowsden',
   ],
   'data-engineering': [
     'artkay',
