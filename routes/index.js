@@ -18,9 +18,6 @@ const userMap = {
   'ctrobich': '@U039YEE4K',
   'jsabol': '@UDDPL7JKT',
   'bellawoo': '@UGG0F4ZQU',
-  'artkay': '@UBMB4JF9B',
-  'aedalton': '@UB6VD284W',
-  'evansandhaus': '@U9Z46U5Q9',
   'lizafloyd': '@UJFGQ1GPK',
   'pschaffer': '@U9YBE64ES',
   'mroman09': '@UB4J8TM6U',
@@ -50,11 +47,6 @@ const teamMap = {
   'custom-ads': [
     'dfelsent',
     'jsabol',
-  ],
-  'data-engineering': [
-    'artkay',
-    'aedalton',
-    'evansandhaus',
   ],
   'data-science': [
     'pschaffer',
